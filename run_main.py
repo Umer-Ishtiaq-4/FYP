@@ -5,7 +5,6 @@ import sys
 import time
 import datetime
 import pprint
-import argparse
 from easydict import EasyDict as edict
 import torch
 import torchvision.transforms as transforms
@@ -14,12 +13,10 @@ from torch.utils import data
 import pickle
 import scipy.sparse as sp
 import json
-import networkx as nx
 import cv2
 
 
 edt = edict()
-cfg = edt
 # MY
 edt.data_dir = 'D:\Text-to-3D_House_Model\layout'
 
@@ -32,7 +29,6 @@ edt.img_size= 512
 edt.channel = 3
 edt.imgsizes = [edt.batch,edt.batch*2,edt.batch*4]
 # edt.sSize = True
-# __C.WORKERS = 6
 edt.train = True
 
 
@@ -40,7 +36,7 @@ def Display_Config():
     os.environ["CUDA_VISIBLE_DEVICES"] = str(edt.gpu)
 
     # print('\n== Config Dictionary ==')
-    # pprint.pprint(cfg)
+    # pprint.pprint(edt)
     # print("\n")
 
     seed = random.randint(1, 10000)
